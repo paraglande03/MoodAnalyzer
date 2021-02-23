@@ -18,7 +18,6 @@ public class MoodAnalyzerTest {
 
         }
         Assert.assertEquals("HAPPY",mood);
-
     }
 
     @Test
@@ -27,10 +26,9 @@ public class MoodAnalyzerTest {
         try {
             moodAnalyzer.analyseMood(null);
         } catch (MoodAnalysisException e) {
-            Assert.assertEquals("Please enter valid message",e.getMessage());
+            Assert.assertEquals(MoodAnalysisException.ExceptionType.ENTERED_NULL,e.type);
         }
     }
-
 }
 
 
