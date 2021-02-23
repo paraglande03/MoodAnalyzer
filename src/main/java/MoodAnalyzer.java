@@ -3,18 +3,18 @@ public class MoodAnalyzer {
     public  MoodAnalyzer(String message) {
         this.message=message;
     }
-    public String analyseMood(String message){
+    public String analyseMood(String message) throws MoodAnalysisException {
         this.message=message;
         return analysemood();
     }
-    public String analysemood() {
+    public String analysemood() throws MoodAnalysisException {
         try {
             if (message.contains("Sad"))
                 return "SAD";
             else
                 return "HAPPY";
         } catch (NullPointerException e) {
-            return "HAPPY";
+            throw new MoodAnalysisException("Please enter valid message");
         }
     }
 }
